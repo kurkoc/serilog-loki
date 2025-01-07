@@ -12,11 +12,13 @@ builder.Host.UseSerilog((context, configuration) =>
     .Enrich.FromLogContext()
     .Enrich.WithProperty("environment", context.HostingEnvironment.EnvironmentName)
     .Enrich.WithProperty("application", context.HostingEnvironment.ApplicationName)
+    .Enrich.WithProperty("machine", Environment.MachineName)
     .WriteTo.Console()
     .WriteTo.GrafanaLoki("http://localhost:3100", labels:
     [
         new LokiLabel { Key = "application", Value = context.HostingEnvironment.ApplicationName },
-        new LokiLabel { Key = "environment", Value = context.HostingEnvironment.EnvironmentName }
+        new LokiLabel { Key = "environment", Value = context.HostingEnvironment.EnvironmentName },
+        new LokiLabel { Key = "machine", Value = Environment.MachineName }
     ]);
 });
 

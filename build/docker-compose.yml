@@ -13,7 +13,7 @@ services:
     networks:
      - logpipeline
     volumes:
-     - C:\Users\kursad.koc\source\repos\SerilogLoki\build\loki-config.yml:/etc/loki/loki-config.yml:ro
+     - ./loki-config.yml:/etc/loki/loki-config.yml:ro
 
   grafana:
     container_name: grafana
@@ -27,12 +27,12 @@ services:
     container_name: logminio
     image: quay.io/minio/minio
     ports:
-      - "9002:9000"
+      - "9000:9000"
       - "9001:9001"
     networks:
       - logpipeline
     volumes:
-      - D:\minio\data:/data
+      - /Users/kurkoc/minio/data:/data
     environment:
       - MINIO_ROOT_USER=admin
       - MINIO_ROOT_PASSWORD=Pa++w0rd
