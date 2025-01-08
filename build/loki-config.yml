@@ -16,7 +16,7 @@ schema_config:
   configs:
     - from: 2020-05-15
       store: tsdb
-      object_store: s3
+      object_store: aws
       schema: v13
       index:
         prefix: index_
@@ -26,8 +26,8 @@ storage_config:
   aws:
     endpoint: http://logminio:9000
     bucketnames: loki-logs
-    access_key_id: WJzYHm2j31cpDla3axsA
-    secret_access_key: 2Sk2fQ531bO8uvkpQ2IjmVDCODE3M9ZspZkk4aNZ
+    access_key_id: qlwJPiTNcCrRYDTurwDz
+    secret_access_key: heNC8eOm9vI701hDPUtzvYIPw9vnZZiZJp8ylWXf
     insecure: true
     s3forcepathstyle: true
 
