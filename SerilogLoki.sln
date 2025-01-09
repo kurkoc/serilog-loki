@@ -1,18 +1,23 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
-VisualStudioVersion = 17.12.35527.113 d17.12
+VisualStudioVersion = 17.12.35527.113
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{31C1E820-7607-4DE8-9DE7-C75443FF87C4}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "docs", "docs", "{B8BB794F-7087-4FB0-BBDB-D581B3577045}"
+	ProjectSection(SolutionItems) = preProject
+		docs\info.txt = docs\info.txt
+	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "test", "test", "{A9083B22-FACA-4C13-9788-1E2BB23299F0}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "build", "build", "{BA49F993-7FDC-4BAD-9B99-95E683B9345D}"
 	ProjectSection(SolutionItems) = preProject
+		build\config.alloy = build\config.alloy
 		build\docker-compose.yml = build\docker-compose.yml
 		build\loki-config.yml = build\loki-config.yml
+		build\promtail.yaml = build\promtail.yaml
 	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SerilogLoki.API", "src\SerilogLoki.API\SerilogLoki.API.csproj", "{87AF9FCD-7AA7-4E4C-9803-5EDB59C07F32}"
