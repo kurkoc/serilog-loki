@@ -20,13 +20,13 @@
    }
 
     stage.template {
-        source   = "date"
-        template = "{{ .date }}T{{ .time }}Z"
+        source   = "fulldate"
+        template = "{{ .date }}T{{ .time }}.000Z"
     }
 
     stage.timestamp {
-        source = "full_ts"
-        format = "2006-01-02T15:04:05Z"
+        source = "fulldate"
+        format = "2006-01-02T15:04:05.000Z"
     }
 
     stage.labels {

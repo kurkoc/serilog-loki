@@ -15,7 +15,7 @@ services:
      - C:\inetpub\logs\iislogs:/var/log/iislogs
      - C:\Users\kursad.koc\source\repos\SerilogLoki\build\config.alloy:/etc/alloy/config.alloy
      - C:\Users\kursad.koc\source\repos\SerilogLoki\build\promtail.yaml:/etc/alloy/promtail.yaml
-    command: run --server.http.listen-addr=0.0.0.0:12345 --storage.path=/var/lib/alloy/data /etc/alloy/config.alloy
+    command: run --server.http.listen-addr=0.0.0.0:12345 --stability.level=experimental --storage.path=/var/lib/alloy/data /etc/alloy/config.alloy
 
   loki:
     container_name: loki
