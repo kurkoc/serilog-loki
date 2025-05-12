@@ -5,31 +5,26 @@ server:
   grpc_listen_port: 9096
 
 common:
-  replication_factor: 1
-  path_prefix: /loki
   ring:
     instance_addr: 127.0.0.1
     kvstore:
       store: inmemory
-      
+  replication_factor: 1
+  path_prefix: /tmp/loki
+
 schema_config:
   configs:
     - from: 2020-05-15
       store: tsdb
-      object_store: aws
+      object_store: filesystem
       schema: v13
       index:
         prefix: index_
         period: 24h
-      
+
 storage_config:
-  aws:
-    endpoint: http://logminio:9000
-    bucketnames: loki-logs
-    access_key_id: qlwJPiTNcCrRYDTurwDz
-    secret_access_key: heNC8eOm9vI701hDPUtzvYIPw9vnZZiZJp8ylWXf
-    insecure: true
-    s3forcepathstyle: true
+  filesystem:
+    directory: /tmp/loki/chunks
 
 frontend:
   encoding: protobuf
