@@ -1,3 +1,1 @@
-alloy convert --source-format=promtail --output=converted.config promtail.yaml
-
 docker-compose -f ./build/docker-compose.yml -p seriloki up -d
