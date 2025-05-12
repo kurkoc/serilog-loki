@@ -3,50 +3,25 @@ networks:
     name: logpipeline
     
 services:
-
-  alloy:
-    container_name: alloy
-    image: grafana/alloy
-    networks:
-     - logpipeline
-    ports:
-     - "12345:12345"
-    volumes:
-     - C:\inetpub\logs\iislogs:/var/log/iislogs
-     - C:\Users\kursad.koc\source\repos\SerilogLoki\build\config.alloy:/etc/alloy/config.alloy
-     - C:\Users\kursad.koc\source\repos\SerilogLoki\build\promtail.yaml:/etc/alloy/promtail.yaml
-    command: run --server.http.listen-addr=0.0.0.0:12345 --storage.path=/var/lib/alloy/data /etc/alloy/config.alloy
-
   loki:
     container_name: loki
-    image: grafana/loki:3.3.2
+    image: grafana/loki:3.5.0
     ports:
      - "3100:3100"
     command: -config.file=/etc/loki/loki-config.yml
     networks:
      - logpipeline
     volumes:
-     - C:\Users\kursad.koc\source\repos\SerilogLoki\build\loki-config.yml:/etc/loki/loki-config.yml
+     - ../build/loki-config.yml:/etc/loki/loki-config.yml
 
   grafana:
     container_name: grafana
-    image: grafana/grafana:11.4.0
+    image: grafana/grafana:12.0.0
     ports:
      - "3000:3000"
+    volumes:
+      - ../build/grafana-sources:/etc/grafana/provisioning/datasources
     networks:
      - logpipeline
- 
-  minio:
-    container_name: logminio
-    image: quay.io/minio/minio
-    ports:
-      - "9002:9000"
-      - "9001:9001"
-    networks:
-      - logpipeline
-    volumes:
-      - D:\minio\data:/data
-    environment:
-      - MINIO_ROOT_USER=admin
-      - MINIO_ROOT_PASSWORD=Pa++w0rd
-    command: server /data --console-address ":9001"
+    depends_on:
+      - loki

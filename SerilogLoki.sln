@@ -14,13 +14,16 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "test", "test", "{A9083B22-F
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "build", "build", "{BA49F993-7FDC-4BAD-9B99-95E683B9345D}"
 	ProjectSection(SolutionItems) = preProject
-		build\config.alloy = build\config.alloy
 		build\docker-compose.yml = build\docker-compose.yml
 		build\loki-config.yml = build\loki-config.yml
-		build\promtail.yaml = build\promtail.yaml
 	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SerilogLoki.API", "src\SerilogLoki.API\SerilogLoki.API.csproj", "{87AF9FCD-7AA7-4E4C-9803-5EDB59C07F32}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "grafana-sources", "grafana-sources", "{15545852-9149-4AC7-B88E-41A4E938F522}"
+	ProjectSection(SolutionItems) = preProject
+		build\grafana-sources\loki-datasource.yml = build\grafana-sources\loki-datasource.yml
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -38,5 +41,6 @@ Global
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{87AF9FCD-7AA7-4E4C-9803-5EDB59C07F32} = {31C1E820-7607-4DE8-9DE7-C75443FF87C4}
+		{15545852-9149-4AC7-B88E-41A4E938F522} = {BA49F993-7FDC-4BAD-9B99-95E683B9345D}
 	EndGlobalSection
 EndGlobal
